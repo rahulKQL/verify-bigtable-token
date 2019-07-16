@@ -73,13 +73,14 @@ public class BigtableDataFlowTest {
   @Test
   public void testBigtableDirectRunner() {
     PipelineOptions options = createOptions();
+    options.setRunner(DirectRunner.class);
     dataflowForBigtable(options);
   }
 
   @Test
   public void testBigtableDataFlowRunner() {
     PipelineOptions options = createOptions();
-    options.setRunner(DirectRunner.class);
+    options.setRunner(DataflowRunner.class);
     dataflowForBigtable(options);
   }
 
@@ -120,10 +121,8 @@ public class BigtableDataFlowTest {
   private DataflowPipelineOptions createOptions() {
     DataflowPipelineOptions options = PipelineOptionsFactory.as(DataflowPipelineOptions.class);
     options.setProject(projectId);
-    options.setZone("us-central1");
     options.setStagingLocation(stagingLoc + "/stage");
     options.setTempLocation(stagingLoc + "/temp");
-    options.setRunner(DataflowRunner.class);
     return options;
   }
 }
