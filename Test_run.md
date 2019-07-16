@@ -1,8 +1,8 @@
-## Unauthentication issue
+# Unauthentication issue
 
 Logs after running the bigtable dataflow jobs, I have verified the same issue on other system beside mine.
 
-  ### DirectRunner logs:
+  ## DirectRunner logs:
     Rahuls-MBP:Verify-Bigtable-Token rahul$ mvn -Dtest=BigtableDataFlowTest#testBigtableDirectRunner test
     [INFO] Scanning for projects...
     [WARNING] 
@@ -178,7 +178,7 @@ Logs after running the bigtable dataflow jobs, I have verified the same issue on
 
 
 
-  ### DataFlowRunner logs:
+  ## DataFlowRunner logs:
   
    Dataflow jobs log can be traced at [here](https://console.cloud.google.com/dataflow/jobsDetail/locations/us-central1/jobs/2019-07-16_07_02_07-17912584438165984517?project=grass-clump-479)
   
@@ -286,7 +286,8 @@ Logs after running the bigtable dataflow jobs, I have verified the same issue on
     Submitted job: 2019-07-16_07_02_07-17912584438165984517
 
     
-  ### After removing ServiceAccountJwtAccessCredentials
+  
+  ## After removing ServiceAccountJwtAccessCredentials
    
    This test is ran on snapshot build of Cloud-bigtable-client after commenting out [ServiceAccountJwtAccessCredentials initialization](https://github.com/googleapis/cloud-bigtable-client/blob/master/bigtable-client-core-parent/bigtable-client-core/src/main/java/com/google/cloud/bigtable/config/CredentialFactory.java#L201-L203), Basically forcing OAuth2Credential instead of Jwt. It runs **successfully**.
  
