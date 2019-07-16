@@ -85,7 +85,7 @@ public class BigtableDataFlowTest {
   }
 
   private void dataflowForBigtable(PipelineOptions options) {
-    LOG.info("Started Creating Pipeline to with DirectRunner");
+    LOG.info("Started Creating Pipeline to with " + options.getRunner());
     options.setJobName("testReadFromBigtable-" + System.currentTimeMillis());
     LOG.info("Started readFromBigtable test with jobName as: %s", options.getJobName());
 
